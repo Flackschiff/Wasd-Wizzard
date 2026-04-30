@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2aytw73abbmj"]
+
+[ext_resource type="Script" uid="uid://cwa8jax71mq6t" path="res://Magic/Spell/Spells/test/projektil_szene_test.gd" id="1_nfjyq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbdaq"]
+
+[node name="Node2D" type="Node2D" unique_id=1875309928]
+script = ExtResource("1_nfjyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1055723844]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=748319822]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=63041036]
+modulate = Color(1, 0.29411766, 1, 1)
+shape = SubResource("CircleShape2D_rbdaq")
+
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Direction" format=3 uid="uid://c3kidgxsly87v"]
+
+[ext_resource type="Script" uid="uid://wp6ubwur7vco" path="res://Magic/Spell/Direktion/direction.gd" id="1_bla8v"]
+
+[resource]
+script = ExtResource("1_bla8v")
+richtung = "UP"
+metadata/_custom_type_script = "uid://wp6ubwur7vco"

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://buia5nfds54ah"]
+
+[ext_resource type="Script" uid="uid://wp6ubwur7vco" path="res://Magic/Spell/Direktion/direction.gd" id="1_uctlp"]
+[ext_resource type="Resource" uid="uid://cye1bvqw435aj" path="res://Magic/Spell/Direktion/direction_down.tres" id="2_vhlmm"]
+[ext_resource type="Script" uid="uid://56ux87k3r4hx" path="res://Magic/Spell/Behaviors/Projektil/Projektil_Data.gd" id="2_vlm5g"]
+[ext_resource type="Resource" uid="uid://du45rjs0sy8dl" path="res://Magic/Spell/Direktion/direction_left.tres" id="3_7oqcs"]
+[ext_resource type="Resource" uid="uid://c3kidgxsly87v" path="res://Magic/Spell/Direktion/direction_up.tres" id="4_8a8pm"]
+[ext_resource type="Texture2D" uid="uid://d633weiyhxmf" path="res://Magic/Spell/Spells/Feuerball/Feuerball_bild.png" id="6_s0fe6"]
+[ext_resource type="Script" uid="uid://clr0o2ns5tvhs" path="res://Magic/Spell/Behaviors/Projektil/projektil_behavior.gd" id="7_4hc10"]
+[ext_resource type="Script" uid="uid://p8puwg7pq1o8" path="res://Magic/Spell/Spells/spell.gd" id="8_v2f8g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhlmm"]
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_7oqcs"]
+script = ExtResource("2_vlm5g")
+speed = 500
+damage = 426
+shape = SubResource("CircleShape2D_vhlmm")
+lifetime = 2.275
+projectil_sprite = ExtResource("6_s0fe6")
+metadata/_custom_type_script = "uid://56ux87k3r4hx"
+
+[sub_resource type="Resource" id="Resource_8a8pm"]
+script = ExtResource("7_4hc10")
+spelldata = SubResource("Resource_7oqcs")
+metadata/_custom_type_script = "uid://clr0o2ns5tvhs"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uctlp"]
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_uctlp"]
+script = ExtResource("2_vlm5g")
+speed = 102
+damage = 370
+shape = SubResource("CircleShape2D_uctlp")
+lifetime = 1.0
+projectil_sprite = ExtResource("6_s0fe6")
+next_behavior = SubResource("Resource_8a8pm")
+metadata/_custom_type_script = "uid://56ux87k3r4hx"
+
+[sub_resource type="Resource" id="Resource_eitch"]
+script = ExtResource("7_4hc10")
+spelldata = SubResource("Resource_uctlp")
+metadata/_custom_type_script = "uid://clr0o2ns5tvhs"
+
+[resource]
+script = ExtResource("8_v2f8g")
+name = "Fireball + gdot mensch"
+chant = Array[ExtResource("1_uctlp")]([ExtResource("2_vhlmm"), ExtResource("3_7oqcs"), ExtResource("4_8a8pm")])
+behavior = SubResource("Resource_eitch")
+metadata/_custom_type_script = "uid://p8puwg7pq1o8"

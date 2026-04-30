@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://be0qll04oqaue"]
+
+[ext_resource type="Script" uid="uid://f4stsl7uscuj" path="res://Magic/Magic Sense/magic_sense.gd" id="1_uqn5q"]
+
+[node name="Magic_Sense" type="Node2D" unique_id=1171435882 groups=["MagicSense"]]
+script = ExtResource("1_uqn5q")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=209793741]
+position = Vector2(-12, -38)
+scale = Vector2(13.66342, 10.545484)
+polygon = PackedVector2Array(-1.3905743, -3.0344744, -1.175247, 1.5600624, 2.776911, 1.5600624, 2.8543367, -2.8448198, 0.8782574, 0.47413665)

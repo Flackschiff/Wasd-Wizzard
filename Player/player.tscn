@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://sqceti3knp5o"]
+
+[ext_resource type="Texture2D" uid="uid://bph3y2mwnqukp" path="res://Player/icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dad3px0e4yi23" path="res://Player/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://p8puwg7pq1o8" path="res://Magic/Spell/Spells/spell.gd" id="2_btcbx"]
+[ext_resource type="Resource" uid="uid://buia5nfds54ah" path="res://Magic/Spell/Spells/Feuerball/Fireball.tres" id="3_gwnis"]
+[ext_resource type="Resource" uid="uid://shfvj8mkwuwk" path="res://Magic/Spell/Spells/Wasserball/Wasserball.tres" id="4_k53q1"]
+[ext_resource type="Resource" uid="uid://rp4f5hxuuds1" path="res://Magic/Spell/Spells/test/MulitCasttest.tres" id="5_fhl08"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+
+[node name="Player" type="CharacterBody2D" unique_id=435420544]
+script = ExtResource("1_onrkg")
+spells = Array[ExtResource("2_btcbx")]([ExtResource("3_gwnis"), ExtResource("4_k53q1"), ExtResource("5_fhl08")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1863321640]
+texture = ExtResource("1_4flbx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1420887501]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=958852400]
+shape = SubResource("CircleShape2D_onrkg")

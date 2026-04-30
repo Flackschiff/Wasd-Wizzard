@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://rp4f5hxuuds1"]
+
+[ext_resource type="Script" uid="uid://b881wlgminn6q" path="res://Magic/Spell/Behaviors/spell_behavior_Super.gd" id="2_wao5q"]
+[ext_resource type="Script" uid="uid://clr0o2ns5tvhs" path="res://Magic/Spell/Behaviors/Projektil/projektil_behavior.gd" id="2_x6eol"]
+[ext_resource type="Texture2D" uid="uid://b2k6k0yayft3r" path="res://Magic/Spell/Spells/Wasserball/wasser.png" id="3_lvlky"]
+[ext_resource type="Script" uid="uid://56ux87k3r4hx" path="res://Magic/Spell/Behaviors/Projektil/Projektil_Data.gd" id="4_wao5q"]
+[ext_resource type="Script" uid="uid://vpknau560obh" path="res://Magic/Spell/Behaviors/Multi Cast/MulitCast_Behavior.gd" id="6_6qt38"]
+[ext_resource type="Script" uid="uid://wp6ubwur7vco" path="res://Magic/Spell/Direktion/direction.gd" id="7_dgp0w"]
+[ext_resource type="Resource" uid="uid://b1np2fg7xnuja" path="res://Magic/Spell/Direktion/direction_right.tres" id="8_3qaex"]
+[ext_resource type="Script" uid="uid://p8puwg7pq1o8" path="res://Magic/Spell/Spells/spell.gd" id="9_h3a8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ogk0"]
+size = Vector2(40, 40)
+
+[sub_resource type="Resource" id="Resource_ihg07"]
+script = ExtResource("4_wao5q")
+speed = 287
+damage = 63
+shape = SubResource("RectangleShape2D_1ogk0")
+projectil_sprite = ExtResource("3_lvlky")
+metadata/_custom_type_script = "uid://56ux87k3r4hx"
+
+[sub_resource type="Resource" id="Resource_cbcym"]
+script = ExtResource("2_x6eol")
+spelldata = SubResource("Resource_ihg07")
+metadata/_custom_type_script = "uid://clr0o2ns5tvhs"
+
+[sub_resource type="Resource" id="Resource_7vn4a"]
+script = ExtResource("6_6qt38")
+behaviors = Array[ExtResource("2_wao5q")]([SubResource("Resource_cbcym")])
+repeat = true
+repeat_count = 4
+spread = true
+sprey = 16
+metadata/_custom_type_script = "uid://vpknau560obh"
+
+[resource]
+script = ExtResource("9_h3a8l")
+name = "Test"
+chant = Array[ExtResource("7_dgp0w")]([ExtResource("8_3qaex"), ExtResource("8_3qaex"), ExtResource("8_3qaex"), ExtResource("8_3qaex")])
+behavior = SubResource("Resource_7vn4a")
+metadata/_custom_type_script = "uid://p8puwg7pq1o8"

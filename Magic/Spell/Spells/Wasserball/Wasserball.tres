@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://shfvj8mkwuwk"]
+
+[ext_resource type="Script" uid="uid://b881wlgminn6q" path="res://Magic/Spell/Behaviors/spell_behavior_Super.gd" id="1_r5hiy"]
+[ext_resource type="Texture2D" uid="uid://b2k6k0yayft3r" path="res://Magic/Spell/Spells/Wasserball/wasser.png" id="2_r5hiy"]
+[ext_resource type="Script" uid="uid://clr0o2ns5tvhs" path="res://Magic/Spell/Behaviors/Projektil/projektil_behavior.gd" id="3_661jv"]
+[ext_resource type="Script" uid="uid://56ux87k3r4hx" path="res://Magic/Spell/Behaviors/Projektil/Projektil_Data.gd" id="3_r5hiy"]
+[ext_resource type="Script" uid="uid://wp6ubwur7vco" path="res://Magic/Spell/Direktion/direction.gd" id="4_flaeu"]
+[ext_resource type="Script" uid="uid://vpknau560obh" path="res://Magic/Spell/Behaviors/Multi Cast/MulitCast_Behavior.gd" id="5_661jv"]
+[ext_resource type="Resource" uid="uid://cye1bvqw435aj" path="res://Magic/Spell/Direktion/direction_down.tres" id="5_y60hl"]
+[ext_resource type="Resource" uid="uid://du45rjs0sy8dl" path="res://Magic/Spell/Direktion/direction_left.tres" id="6_wf87g"]
+[ext_resource type="Resource" uid="uid://c3kidgxsly87v" path="res://Magic/Spell/Direktion/direction_up.tres" id="7_661jv"]
+[ext_resource type="Script" uid="uid://p8puwg7pq1o8" path="res://Magic/Spell/Spells/spell.gd" id="8_wn8xi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flaeu"]
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_y60hl"]
+script = ExtResource("3_r5hiy")
+damage = 10
+shape = SubResource("CircleShape2D_flaeu")
+lifetime = 0.5
+projectil_sprite = ExtResource("2_r5hiy")
+metadata/_custom_type_script = "uid://56ux87k3r4hx"
+
+[sub_resource type="Resource" id="Resource_wf87g"]
+script = ExtResource("3_661jv")
+spelldata = SubResource("Resource_y60hl")
+metadata/_custom_type_script = "uid://clr0o2ns5tvhs"
+
+[sub_resource type="Resource" id="Resource_lqaey"]
+script = ExtResource("5_661jv")
+behaviors = Array[ExtResource("1_r5hiy")]([SubResource("Resource_wf87g")])
+repeat = true
+repeat_count = 91
+spread = true
+sprey = 217
+metadata/_custom_type_script = "uid://vpknau560obh"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdcs0"]
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_661jv"]
+script = ExtResource("3_r5hiy")
+speed = 408
+shape = SubResource("CircleShape2D_qdcs0")
+lifetime = 0.565
+projectil_sprite = ExtResource("2_r5hiy")
+next_behavior = SubResource("Resource_lqaey")
+metadata/_custom_type_script = "uid://56ux87k3r4hx"
+
+[sub_resource type="Resource" id="Resource_flaeu"]
+script = ExtResource("3_661jv")
+spelldata = SubResource("Resource_661jv")
+metadata/_custom_type_script = "uid://clr0o2ns5tvhs"
+
+[resource]
+script = ExtResource("8_wn8xi")
+name = "Wasserball"
+chant = Array[ExtResource("4_flaeu")]([ExtResource("5_y60hl"), ExtResource("5_y60hl"), ExtResource("7_661jv"), ExtResource("6_wf87g")])
+behavior = SubResource("Resource_flaeu")
+metadata/_custom_type_script = "uid://p8puwg7pq1o8"
